@@ -3,10 +3,8 @@ const axios = require('axios');
 const app = express();
 const PORT = 3000;
 
-// Serve static files (for frontend)
 app.use(express.static('public'));
 
-// API route to get Pi value up to the requested number of digits
 app.get('/api/pi', async (req, res) => {
     const digits = parseInt(req.query.digits);
     if (isNaN(digits) || digits < 1 || digits > 1000) {
