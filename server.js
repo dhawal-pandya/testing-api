@@ -11,7 +11,6 @@ app.get('/api/pi', async (req, res) => {
         return res.status(400).json({ error: 'Please provide a number between 1 and 1000.' });
     }
 
-    // Using external Pi API
     try {
         const response = await axios.get(`https://api.pi.delivery/v1/pi?start=0&numberOfDigits=${digits}`);
         res.json({ piValue: response.data.content });
